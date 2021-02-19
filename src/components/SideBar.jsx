@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -73,8 +73,6 @@ export default function SideBar() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // const articleCategories = categories;
-
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -83,9 +81,13 @@ export default function SideBar() {
     setOpen(false);
   };
 
-// Fetching top stories from New York times API depending on category clicked
-  const getProducts = (category) => {
+// Fetch Home page data on page load 
+  useEffect(() => {
+    getArticles('home')
+  }, []);
 
+// Fetching top stories from New York times API depending on category clicked
+  const getArticles = (category) => {
     category = category.toLowerCase()
     setLoading(true)
     fetch(`https://api.nytimes.com/svc/topstories/v2/${category}.json?${process.env.REACT_APP_API_KEY}`)
@@ -152,7 +154,7 @@ export default function SideBar() {
         </Typography>
         <List>
           {articleCategories.map((text, i) => (
-            <ListItem button key={`articleCard_${i}`} onClick={() => getProducts(text)}>
+            <ListItem button key={`articleCard_${i}`} onClick={() => getArticles(text)}>
               <ListItemText className={classes.text} primary={text} key={`articleCard_text_${i}`} />
             </ListItem>
           ))}
