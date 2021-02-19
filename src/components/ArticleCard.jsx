@@ -37,7 +37,7 @@ const ArticleCard = ({ articleResults }) => {
     <div className={classes.cardContainer} key={`cardContainer`}>
       {articleResults.map((article, i) => (
         <div key={`article_${i}`}>
-        <Card className={classes.root} key={`articleCard_${i}`}>
+        <Card className={classes.root} key={`articleCard_${i}`} cy-data='articleCard'>
         <CardActionArea key={`cardActionArea_${i}`} href={article.url} target='_blank' rel='noreferrer'>
           {
             article.multimedia

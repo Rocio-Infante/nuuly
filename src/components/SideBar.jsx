@@ -134,7 +134,7 @@ export default function SideBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap className={classes.title} onClick={() => getArticles('home')}>
+          <Typography variant="h4" noWrap className={classes.title} onClick={() => getArticles('home')} cy-data='homePageTitle'>
             Nuuly News
           </Typography>
         </Toolbar> 
