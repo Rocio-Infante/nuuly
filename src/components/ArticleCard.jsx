@@ -39,9 +39,9 @@ const ArticleCard = ({ articleResults }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.cardContainer}>
+    <div className={classes.cardContainer} key={`cardContainer`}>
       {articleResults.map((article, i) => (
-        <div>
+        <div key={`article_${i}`}>
         <Card className={classes.root} key={`articleCard_${i}`}>
         <CardActionArea key={`cardActionArea_${i}`} href={article.url} target="_blank">
           <CardMedia

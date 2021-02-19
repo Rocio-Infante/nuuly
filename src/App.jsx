@@ -3,7 +3,9 @@ import SideBar from '../src/components/SideBar.jsx';
 
 const App = () => {
   return (
-    <SideBar />
+    <>
+      <SideBar />
+    </>
   )
 }
 
