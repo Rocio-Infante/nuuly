@@ -38,7 +38,7 @@ const ArticleCard = ({ articleResults }) => {
       {articleResults.map((article, i) => (
         <div key={`article_${i}`}>
         <Card className={classes.root} key={`articleCard_${i}`}>
-        <CardActionArea key={`cardActionArea_${i}`} href={article.url} target="_blank" rel='noreferrer'>
+        <CardActionArea key={`cardActionArea_${i}`} href={article.url} target='_blank' rel='noreferrer'>
           {
             article.multimedia
             ? 
