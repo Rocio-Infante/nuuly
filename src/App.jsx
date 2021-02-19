@@ -1,9 +1,9 @@
 import React from 'react';
-
+import SideBar from '../src/components/SideBar.jsx';
 
 const App = () => {
   return (
-    <h1>Hello</h1>
+    <SideBar />
   )
 }
 
