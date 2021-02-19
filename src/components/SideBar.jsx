@@ -61,8 +61,13 @@ const useStyles = makeStyles((theme) => ({
   },
   text: {
     color: '#365261',
-    fontFamily: "Benne, serif",
+    fontFamily: 'Benne, serif',
   },
+  title: {
+    color: '#365261',
+    fontFamily: 'Benne, serif',
+    cursor: 'pointer',
+  }
 }));
 
 export default function SideBar() {
@@ -129,10 +134,10 @@ export default function SideBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap className={classes.text}>
+          <Typography variant="h4" noWrap className={classes.title} onClick={() => getArticles('home')}>
             Nuuly News
           </Typography>
-        </Toolbar>
+        </Toolbar> 
       </AppBar>
       <Drawer
         className={classes.drawer}
