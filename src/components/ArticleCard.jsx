@@ -25,11 +25,8 @@ const useStyles = makeStyles(() => ({
   media: {
     height: 140,
   },
-  title: {
-    textAlign: "center",
-    paddingBottom: 55,
-    paddingTop: 45,
-    fontFamily: "Castoro, serif",
+  text: {
+    fontFamily: "Benne, serif",
   },
 }));
 
@@ -51,14 +48,14 @@ const ArticleCard = ({ articleResults }) => {
             key={`cardMedia_${i}`}
           />
           <CardContent key={`cardContent_${i}`}>
-            <Typography gutterBottom variant="h6" component="h2" key={`title_${i}`}>
+            <Typography className={classes.text} gutterBottom variant="h6" component="h2" key={`title_${i}`}>
               {article.title}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p" key={`abstract_${i}`}>
+            <Typography className={classes.text} variant="body2" color="textSecondary" component="p" style={{fontSize:16}} key={`abstract_${i}`}>
               {article.abstract}
             </Typography>
             <br />
-            <Typography variant="body2" color="textSecondary" component="p" style={{fontSize:12}} key={`byline_${i}`}>
+            <Typography className={classes.text} variant="body2" color="textSecondary" component="p" style={{fontSize:13}} key={`byline_${i}`}>
               {article.byline}
             </Typography>
           </CardContent>

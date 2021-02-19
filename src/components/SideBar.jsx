@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    // padding: theme.spacing(3),
+    padding: theme.spacing(3),
     paddingBottom: 45,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
@@ -75,9 +75,9 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
-  toolbar: {
+  text: {
     color: '#365261',
-    backgroundColor: '#ffff',
+    fontFamily: "Benne, serif",
   }
 }));
 
@@ -115,7 +115,7 @@ export default function SideBar() {
           [classes.appBarShift]: open,
         })}
       >
-        <Toolbar className={classes.toolbar}>
+        <Toolbar className={classes.text} style={{backgroundColor:'#fff'}}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -125,7 +125,7 @@ export default function SideBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap>
+          <Typography variant="h4" noWrap className={classes.text}>
             Nuuly News
           </Typography>
         </Toolbar>
@@ -145,13 +145,13 @@ export default function SideBar() {
           </IconButton>
         </div>
         <Divider />
-        <Typography variant="h6">
+        <Typography variant="h5" className={classes.text}>
             Top Stories
         </Typography>
         <List>
           {articleCategories.map((text, i) => (
             <ListItem button key={`articleCard_${i}`} onClick={() => getProducts(text)}>
-              <ListItemText primary={text} key={`articleCard_text_${i}`} />
+              <ListItemText className={classes.text} primary={text} key={`articleCard_text_${i}`} />
             </ListItem>
           ))}
         </List>
