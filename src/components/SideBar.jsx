@@ -154,7 +154,7 @@ export default function SideBar() {
           </IconButton>
         </div>
         <Divider />
-        <Typography variant="h5" className={classes.text}>
+        <Typography variant="h5" className={classes.text} style={{marginTop:'10px', marginLeft:'10px'}}>
             Top Stories
         </Typography>
         <List>
