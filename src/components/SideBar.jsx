@@ -15,6 +15,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import MainContent from './MainContent.jsx';
+import { articleCategories } from '../sources/Categories.js'
 
 
 const drawerWidth = 240;
@@ -61,7 +62,7 @@ const useStyles = makeStyles((theme) => ({
   text: {
     color: '#365261',
     fontFamily: "Benne, serif",
-  }
+  },
 }));
 
 export default function SideBar() {
@@ -72,7 +73,7 @@ export default function SideBar() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const articleCategories = ['Arts', 'Fashion', 'Food', 'Health', 'Home', 'Theater', 'Travel'];
+  // const articleCategories = categories;
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -158,9 +159,9 @@ export default function SideBar() {
         </List>
       </Drawer>
       <MainContent 
-      open={open} 
-      articleResults={articleResults}
-      articleCategories={articleCategories}
+        open={open} 
+        articleResults={articleResults}
+        articleCategories={articleCategories}
       />
     </div>
   );
