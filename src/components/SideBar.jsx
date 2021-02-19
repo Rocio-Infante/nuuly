@@ -14,9 +14,9 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import MainContent from './MainContent.jsx';
 import { articleCategories } from '../sources/Categories.js'
-
+import MainContent from './MainContent.jsx';
+import Spinner from './Spinner.jsx';
 
 const drawerWidth = 240;
 
@@ -107,7 +107,7 @@ export default function SideBar() {
       }) 
 
     if (loading) {
-      return <p>loading...</p>
+      return <Spinner />
     }
 
     if (error) {

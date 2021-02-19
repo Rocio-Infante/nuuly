@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { lazy, Suspense }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import ArticleCard from './ArticleCard.jsx';
+import Spinner from './Spinner.jsx';
+const ArticleCard = lazy(() => import('./ArticleCard.jsx'))
 
 const drawerWidth = 240;
 
@@ -35,7 +36,9 @@ const MainContent = ({ open, articleResults, articleCategories }) => {
       })}
     >
       <div className={classes.drawerHeader} />
+      <Suspense fallback={<Spinner/>}>
       <ArticleCard articleResults={articleResults} articleCategories={articleCategories}/>
+      </Suspense>
     </main>
   )
 };
