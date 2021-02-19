@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   makeStyles,
   Card,
@@ -7,7 +6,6 @@ import {
   CardMedia,
   Typography,
 } from "@material-ui/core";
-
 
 // ---------------------------------- styles ------------------------------------- //
 const useStyles = makeStyles(() => ({
@@ -41,12 +39,24 @@ const ArticleCard = ({ articleResults }) => {
         <div key={`article_${i}`}>
         <Card className={classes.root} key={`articleCard_${i}`}>
         <CardActionArea key={`cardActionArea_${i}`} href={article.url} target="_blank">
-          <CardMedia
+          {
+            article.multimedia
+            ? 
+            <CardMedia
             className={classes.media}
             image={article.multimedia[0].url}
             title="Thumbnail"
             key={`cardMedia_${i}`}
-          />
+            />
+            : 
+            <CardMedia
+            className={classes.media}
+            image={'https://cdn-images-1.medium.com/max/1200/1*QUlYX1snC5csKT-E6Bmxvw.jpeg'}
+            title="Thumbnail"
+            key={`cardMedia_${i}`}
+            />
+          }
+
           <CardContent key={`cardContent_${i}`}>
             <Typography className={classes.text} gutterBottom variant="h6" component="h2" key={`title_${i}`}>
               {article.title}
