@@ -58,23 +58,6 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-    paddingBottom: 45,
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
   text: {
     color: '#365261',
     fontFamily: "Benne, serif",
@@ -86,6 +69,8 @@ export default function SideBar() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const [articleResults, setArticleResults] = useState([]);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
 
   const articleCategories = ['Arts', 'Fashion', 'Food', 'Health', 'Home', 'Theater', 'Travel'];
 
@@ -99,11 +84,27 @@ export default function SideBar() {
 
 // Fetching top stories from New York times API depending on category clicked
   const getProducts = (category) => {
+
     category = category.toLowerCase()
-    // console.log('PUG', process.env.API_KEY)
-    fetch(`https://api.nytimes.com/svc/topstories/v2/${category}.json?api-key=VZ7SYrCN7caOFSrrjt6czMUKnV8Dv98g`)
-    .then((response) => response.json())
-    .then((data) => setArticleResults(data.results))
+    setLoading(true)
+    fetch(`https://api.nytimes.com/svc/topstories/v2/${category}.json?${process.env.REACT_APP_API_KEY}`)
+    .then(response => response.json())
+    .then(data => {
+      setArticleResults(data.results)
+      setLoading(false)
+      })
+      .catch(e => {
+        setLoading(false)
+        setError('Fetch failed')
+      }) 
+
+    if (loading) {
+      return <p>loading...</p>
+    }
+
+    if (error) {
+      return <p>ERROR: {error}</p>
+    }
   }
   
   return (
