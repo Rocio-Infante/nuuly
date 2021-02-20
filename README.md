@@ -34,7 +34,7 @@ npm run test:e2e
 
 ## Features
 
-- Displays Material UI Cards for each NY Times article
+- Displays a card for each NY Times article
 - Card links open new tab to specific NY Times article
 - Displays articles by category based on sidebar navigation
 - Home page displays trending articles
