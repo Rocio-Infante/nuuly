@@ -131,6 +131,7 @@ export default function SideBar() {
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
+            cy-data='drawerButton'
           >
             <MenuIcon />
           </IconButton>
@@ -159,8 +160,8 @@ export default function SideBar() {
         </Typography>
         <List>
           {articleCategories.map((text, i) => (
-            <ListItem button key={`articleCard_${i}`} onClick={() => getArticles(text)}>
-              <ListItemText className={classes.text} primary={text} key={`articleCard_text_${i}`} />
+            <ListItem button key={`sidebarListItem_${i}`} onClick={() => getArticles(text)} cy-data='sideBarCategory'>
+              <ListItemText className={classes.text} primary={text} key={`sideBarListItem_text_${i}`} cy-data='categoryText'/>
             </ListItem>
           ))}
         </List>
