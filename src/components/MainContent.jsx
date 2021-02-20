@@ -2,8 +2,10 @@ import React, { lazy, Suspense }from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import Spinner from './Spinner.jsx';
+// Lazy loading for article data
 const ArticleCard = lazy(() => import('./ArticleCard.jsx'))
 
+// ---------------------------------- Styles ------------------------------------- //
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// ---------------------------------- Main Content Area ------------------------------------- //
 const MainContent = ({ open, articleResults, articleCategories }) => {
   const classes = useStyles();
 

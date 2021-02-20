@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@material-ui/core";
 
-// ---------------------------------- styles ------------------------------------- //
+// ---------------------------------- Styles ------------------------------------- //
 const useStyles = makeStyles(() => ({
   root: {
     maxWidth: 300,

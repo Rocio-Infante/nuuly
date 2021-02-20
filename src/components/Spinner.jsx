@@ -1,7 +1,10 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import {
+  makeStyles,
+  CircularProgress,
+} from "@material-ui/core";
 
+// ---------------------------------- styles ------------------------------------- //
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -12,7 +15,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Spinner() {
+// --------------------------- Spinner for loading screen ------------------------------------- //
+const Spinner = () => {
   const classes = useStyles();
 
   return (
@@ -21,3 +25,5 @@ export default function Spinner() {
     </div>
   );
 }
+
+export default Spinner;
